@@ -1,9 +1,9 @@
 ##  ejptv2 labs
-**This is bold text**
+**Assessment Methodologies: Information Gathering**
 
 ```
 git status
 git add
 git commit
 ```
-(&#x1F53A;)
+
