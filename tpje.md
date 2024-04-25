@@ -23,8 +23,21 @@ nmap -sV -p 6421,41288,55413  192.35.94.3
 03)  Windows Recon: SMB Nmap Scripts
    
 ```
-
-
+cat /Desktop/target
+ping -c 5 10.0.17.200
+nmap 10.0.17.200
+nmap -p445 --script smb-protocols 10.0.17.200
+nmap -p445 --script smb-security-mode 10.0.17.200
+nmap -p445 --script smb-enum-sessions 10.0.17.200
+nmap -p445 --script smb-enum-sessions --script-args smbusername=administrator,smbpassword=smbserver_771 10.0.17.200
+nmap -p445 --script smb-enum-shares 10.0.17.200
+nmap -p445 --script smb-enum-shares --script-args smbusername=administrator,smbpassword=smbserver_771 10.0.17.200
+nmap -p445 --script smb-enum-users --script-args smbusername=administrator,smbpassword=smbserver_771 10.0.17.200
+nmap -p445 --script smb-server-stats --script-args smbusername=administrator,smbpassword=smbserver_771 10.0.17.200
+nmap -p445 --script smb-enum-domains --script-args smbusername=administrator,smbpassword=smbserver_771 10.0.17.200
+nmap -p445 --script smb-enum-groups --script-args smbusername=administrator,smbpassword=smbserver_771 10.0.17.200
+nmap -p445 --script smb-enum-services --script-args smbusername=administrator,smbpassword=smbserver_771 10.0.17.200
+nmap -p445 --script smb-enum-shares,smb-ls --script-args smbusername=administrator,smbpassword=smbserver_771 10.0.17.200
 
 ```
 
