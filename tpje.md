@@ -11,4 +11,9 @@ nmap -Pn -p 443 10.0.22.124
 nmap -Pn -sV -p 80 10.0.22.124
 
 ```
+2) Windows Recon: Nmap Host Discovery
+```
+
+
+```
 
