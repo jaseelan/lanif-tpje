@@ -12,6 +12,7 @@ nmap -Pn -sV -p 80 10.0.22.124
 
 ```
 **Assessment Methodologies: Footprinting & Scanning**
+
 02) 
 ```
 
