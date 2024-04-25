@@ -6,3 +6,4 @@ git status
 git add
 git commit
 ```
+`rgb(9, 105, 218)`
