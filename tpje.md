@@ -1,7 +1,7 @@
 ##  ejptv2 labs
 **Assessment Methodologies: Information Gathering**
 
-1) Windows Recon: Nmap Host Discovery
+01) Windows Recon: Nmap Host Discovery
 ```
 cat Desktop/target # 10.0.22.124
 ping -c 5 10.0.22.124 # no response
@@ -12,6 +12,7 @@ nmap -Pn -sV -p 80 10.0.22.124
 
 ```
 **Assessment Methodologies: Footprinting & Scanning**
+02) 
 ```
 
 
