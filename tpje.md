@@ -224,7 +224,15 @@ cat secret.txt
 14)  VSFTPD Recon: Basics
 
 ```
-
+ip a s
+nmap 192.213.140.3
+nmap -sV 192.213.140.3
+nmap --script ftp-anon 192.213.140.3
+ftp 192.213.140.3 # anonymous
+ls
+get flag
+exit
+cat flag 
 ```
 
 
