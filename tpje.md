@@ -40,7 +40,11 @@ nmap -p445 --script smb-enum-services --script-args smbusername=administrator,sm
 nmap -p445 --script smb-enum-shares,smb-ls --script-args smbusername=administrator,smbpassword=smbserver_771 10.0.17.200
 
 ```
+03)  Windows Recon: Zenmap (nmap gui)
 
+```
+
+```
 
 
 
