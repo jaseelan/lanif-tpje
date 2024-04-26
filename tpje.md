@@ -92,6 +92,7 @@ ls -al /usr/share/nmap/scripts/ | grep -e "ftp"            # for nmap
 cd  /usr/share/nmap/scripts/                               # for nmap
 ls -l | grep -e  ssh                                       # for nmap
 less ssh-hostkey.nse
+ls -al |grep smb-o
 nmap 10.0.28.123
 nmap -p445 --script smb-protocols 10.0.28.123
 smbmap -u guest -p "" -d . -H 10.0.28.123
@@ -108,8 +109,20 @@ cat /root/10.0.28.123-C_flag.txt
 09)  Samba Recon: Basics
 
 ```
+nmap 192.126.66.3
+nmap -sU --top-ports 25 192.126.66.3
+nmap -sV -p 445 192.126.66.3
+nmap --script smb-os-discovery.nse -p 445 192.126.66.3
 
+msfconsole
+use auxiliary/scanner/smb/smb_version
+set RHOSTS 192.126.66.3
+exploit
 
+nmap --script smb-os-discovery.nse -p 445 192.126.66.3
+nmblookup -A 192.126.66.3
+smbclient -L 192.126.66.3 -N
+rpcclient -U "" -N 192.126.66.3
 ```
 
 
