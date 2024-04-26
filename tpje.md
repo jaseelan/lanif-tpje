@@ -88,6 +88,10 @@ net use Z: \\10.0.22.92\C$ smbserver_771 /user:administrator
 08)  Windows Recon: SMBMap
 
 ```
+ls -al /usr/share/nmap/scripts/ | grep -e "ftp"            # for nmap
+cd  /usr/share/nmap/scripts/                               # for nmap
+ls -l | grep -e  ssh                                       # for nmap
+less ssh-hostkey.nse
 
 ```
 
