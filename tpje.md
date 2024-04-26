@@ -127,6 +127,28 @@ rpcclient -U "" -N 192.126.66.3
 10)  Samba Recon: Basics II
 
 ```
+rpcclient -U "" -N 192.144.106.3
+srvinfo
+enum4linux -o 192.144.106.3
+smbclient -L 192.144.106.3 -N
+nmap -p445 --script smb-protocols 192.144.106.3
+
+msfconsole
+use auxiliary/scanner/smb/smb2
+set RHOSTS 192.144.106.3
+exploit
+
+nmap --script smb-enum-users.nse -p445 192.144.106.3
+msfconsole
+use auxiliary/scanner/smb/smb_enumusers
+set RHOSTS 192.144.106.3
+exploit
+
+enum4linux -U 192.144.106.3
+rpcclient -U "" -N 192.144.106.3
+enumdomusers
+rpcclient -U "" -N 192.144.106.3
+lookupnames admin
 
 ```
 
