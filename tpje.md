@@ -152,6 +152,31 @@ lookupnames admin
 
 ```
 
+11)  Samba Recon: Basics III
+
+```
+nmap --script smb-enum-shares.nse -p445 192.144.106.3
+msfconsole
+use auxiliary/scanner/smb/smb_enumshares
+set RHOSTS 192.144.106.3
+exploit
+enum4linux -S 192.144.106.3
+smbclient -L 192.144.106.3 -N
+enum4linux -G 192.144.106.3
+rpcclient -U "" -N 192.144.106.3
+enumdomgroups
+enum4linux -i 192.144.106.3
+smbclient //192.144.106.3/public -N
+ls
+smbclient //192.144.106.3/public -N
+ls
+cd secret
+ls
+get flag
+exit
+cat flag
+```
+
 
 
 
