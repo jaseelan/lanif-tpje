@@ -49,7 +49,14 @@ nmap -T4 -A -v 10.0.17.0/20
 04)  Scan the Server 2
 
 ```
-
+ip a
+ping 192.206.172.3
+nmap  -p 177 -A 192.206.172.3
+nmap  -p 1-250 -sU 192.206.172.3
+nmap  -p 134,177,234 -sUV 192.206.172.3
+nmap 192.206.172.3 -p 134 -sUV --script=discovery
+tftp 192.206.172.3 134
+status
 ```
 
 
