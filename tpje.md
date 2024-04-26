@@ -43,6 +43,12 @@ nmap -p445 --script smb-enum-shares,smb-ls --script-args smbusername=administrat
 03)  Windows Recon: Zenmap (nmap gui)
 
 ```
+nmap -T4 -A -v 10.0.17.0/20
+```
+
+04)  Scan the Server 2
+
+```
 
 ```
 
