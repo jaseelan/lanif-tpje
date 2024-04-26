@@ -40,13 +40,13 @@ nmap -p445 --script smb-enum-services --script-args smbusername=administrator,sm
 nmap -p445 --script smb-enum-shares,smb-ls --script-args smbusername=administrator,smbpassword=smbserver_771 10.0.17.200
 
 ```
-03)  Windows Recon: Zenmap (nmap gui)
+04)  Windows Recon: Zenmap (nmap gui)
 
 ```
 nmap -T4 -A -v 10.0.17.0/20
 ```
 
-04)  Scan the Server 2
+05)  Scan the Server 2
 
 ```
 ip a
@@ -57,6 +57,15 @@ nmap  -p 134,177,234 -sUV 192.206.172.3
 nmap 192.206.172.3 -p 134 -sUV --script=discovery
 tftp 192.206.172.3 134
 status
+```
+
+06)  Scan the Server 3
+
+```
+ip a
+ip addr
+ip a s
+
 ```
 
 
