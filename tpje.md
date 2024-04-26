@@ -177,6 +177,12 @@ exit
 cat flag
 ```
 
+12)  Samba Recon: Dictionary Attack
+
+```
+
+```
+
 
 
 
