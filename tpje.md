@@ -65,6 +65,10 @@ status
 ip a
 ip addr
 ip a s
+ping 192.57.232.3
+nmap -T4 -p- 192.57.232.3
+nmap -T4 -sU  192.57.232.3
+nmap -T4 -sU -p 161 -A 192.57.232.3
 
 ```
 
