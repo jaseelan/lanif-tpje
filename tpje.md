@@ -124,6 +124,12 @@ nmblookup -A 192.126.66.3
 smbclient -L 192.126.66.3 -N
 rpcclient -U "" -N 192.126.66.3
 ```
+10)  Samba Recon: Basics II
+
+```
+
+```
+
 
 
 
