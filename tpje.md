@@ -85,6 +85,11 @@ net use * /delete
 net use Z: \\10.0.22.92\C$ smbserver_771 /user:administrator
 
 ```
+08)  Windows Recon: SMBMap
+
+```
+
+```
 
 
 
