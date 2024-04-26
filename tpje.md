@@ -73,10 +73,16 @@ nmap -T4 -sU -p 161 -A 192.57.232.3
 ```
 **Assessment Methodologies: Enumeration**
 
-07)  
+07)  Windows Recon: SMB Discover and Mount
 
 ```
-
+ipconfig
+nmap 10.0.24.0/20 --open
+The target subnet is “255.255.240.0” hence we have mentioned CIDR to 20.
+Go to This PC → Network → Right Click on Network → Map Network Drive
+\\10.0.22.92
+net use * /delete
+net use Z: \\10.0.22.92\C$ smbserver_771 /user:administrator
 
 ```
 
