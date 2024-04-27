@@ -247,6 +247,28 @@ nmap -p 22 --script ssh-auth-methods --script-args="ssh.user=student" 192.201.39
 nmap -p 22 --script ssh-auth-methods --script-args="ssh.user=admin" 192.201.39.3
 nmap -p 22 --script=ssh-run --script-args="ssh-run.cmd=cat /home/student/FLAG, ssh-run.username=student,ssh-run.password=" 192.201.39.3
 ```
+16)  SSH Recon: Dictionary Attack
+
+```
+
+
+
+```
+
+17)  
+
+```
+
+```
+
+
+
+
+
+
+
+
+
 
 
 
