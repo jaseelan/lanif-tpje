@@ -238,7 +238,14 @@ cat flag
 15)  SSH Recon: Basic
 
 ```
-
+nmap -sV 192.201.39.3
+nc 192.201.39.3
+ssh root@192.201.39.3
+nmap --script ssh2-enum-algos 192.201.39.3
+nmap --script ssh-hostkey --script-args ssh_hostkey=full 192.201.39.3
+nmap -p 22 --script ssh-auth-methods --script-args="ssh.user=student" 192.201.39.3
+nmap -p 22 --script ssh-auth-methods --script-args="ssh.user=admin" 192.201.39.3
+nmap -p 22 --script=ssh-run --script-args="ssh-run.cmd=cat /home/student/FLAG, ssh-run.username=student,ssh-run.password=" 192.201.39.3
 ```
 
 
