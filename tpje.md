@@ -235,6 +235,12 @@ exit
 cat flag 
 ```
 
+15)  SSH Recon: Basic
+
+```
+
+```
+
 
 
 
