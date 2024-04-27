@@ -262,10 +262,21 @@ set STOP_ON_SUCCESS true
 set verbose true
 exploit
 ssh root@192.40.231.3
-
 ```
 
-17)  
+17)  Windows Recon: IIS
+
+```
+cat /root/Desktop/target
+nmap 10.0.29.163
+whatweb 10.0.29.163
+http 10.0.29.163
+dirb http://10.0.29.163
+browsh --startup-url http://10.0.29.163/Default.aspx
+#the httpie tool to gather target server information
+```
+
+18)  
 
 ```
 
