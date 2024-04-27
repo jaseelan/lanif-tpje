@@ -276,7 +276,38 @@ browsh --startup-url http://10.0.29.163/Default.aspx
 #the httpie tool to gather target server information
 ```
 
-18)  
+18)  Windows Recon: IIS: Nmap Scripts
+
+```
+cat /root/Desktop/target
+nmap 10.0.28.146
+nmap --script http-enum -sV -p 80 10.0.28.146
+nmap --script http-headers -sV -p 80 10.0.28.146
+nmap --script http-methods --script-args http-methods.url-path=/webdav/ 10.0.28.146
+nmap --script http-webdav-scan --script-args http-methods.url-path=/webdav/ 10.0.28.146
+```
+19)  Apache Recon: Basics
+
+```
+nmap -sV -script banner 192.30.247.3
+msfconsole
+use auxiliary/scanner/http/http_version
+set RHOSTS 192.30.247.3
+exploit
+curl http://192.30.247.3/
+wget http://192.30.247.3/index
+browsh --startup-url 192.30.247.3
+lynx http://192.30.247.3
+use auxiliary/scanner/http/brute_dirs
+set RHOSTS 192.30.247.3
+exploit
+dirb http://192.30.247.3 /usr/share/metasploit-framework/data/wordlists/directory.txt
+use auxiliary/scanner/http/robots_txt
+set RHOSTS 192.30.247.3
+run
+```
+
+20)  
 
 ```
 
