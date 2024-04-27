@@ -363,7 +363,13 @@ exploit
 hydra -l root -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt 192.149.194.3 mysql
 ```
 
-22)  
+22)  Recon: MSSQL: Nmap Scripts
+
+```
+
+```
+
+23)  
 
 ```
 
