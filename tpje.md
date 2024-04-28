@@ -432,13 +432,17 @@ dir
 type flag.txt
 
 ```
+**Assessment Methodologies: Auditing Fundamentals**
+only  Nessus lab 
 
+```
+
+```
 26)  
 
 ```
 
 ```
-
 
 
 
