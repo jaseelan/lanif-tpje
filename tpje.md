@@ -407,6 +407,8 @@ use auxiliary/admin/mssql/mssql_enum_domain_accounts
 set RHOSTS 10.0.20.101
 exploit
 ```
+**Assessment Methodologies: Vulnerability Assessment**
+
 24)  
 
 ```
