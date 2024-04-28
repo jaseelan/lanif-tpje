@@ -438,7 +438,15 @@ only  Nessus lab
 ```
 
 ```
+**Host & Network Penetration Testing: System/Host Based Attacks**
+
 26)  
+
+```
+
+```
+
+27)  
 
 ```
 
