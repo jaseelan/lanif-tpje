@@ -845,8 +845,22 @@ nmap -Pn 10.0.30.43
 nmap -Pn -p 443 10.0.30.43
 nmap -Pn -sV -p 80 10.0.30.43
 ```
+48) Importing Nmap Scan Results Into MSF
+    
+```
+nmap -Pn -sV 10.0.24.167 -oX windows_server_2012
+service postgresql start
+msfconsole
+db_status
+db_import /root/windows_server_2012
+hosts
+services
+```
+49)
 
+```
 
+```
 
 
 
