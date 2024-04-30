@@ -807,7 +807,19 @@ arpspoof -i eth1 -t 10.100.13.37 -r 10.100.13.36
 open wireshark and filter telnet
 ```
 
+44) WiFi Security: Traffic Analysis I
 
+```
+(wlan.fc.type_subtype == 0x0008) && (!(wlan.wfa.ie.wpa.version == 1)) && !(wlan.tag.number == 48)
+wlan.wfa.ie.wpa.version == 1 is to filter put a vendor IE
+wlan contains Home_Network
+wlan contains LazyArtists
+(wlan.ssid contains "Amazon") && (wlan.fc.type_subtype == 0x0008)
+(wlan.ta == e8:de:27:16:87:18) || (wlan.ra == e8:de:27:16:87:18)
+((wlan.bssid == e8:de:27:16:87:18) ) && (wlan.fc.type_subtype == 0x0020)
+(((wlan.bssid == e8:de:27:16:87:18)) && (wlan.addr==5c:51:88:31:a0:3b)) && (wlan.fc.type_subtype == 0x0001)
+
+```
 
 
 
