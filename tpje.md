@@ -833,7 +833,18 @@ tshark -r WiFi_traffic.pcap -Y "wlan.ssid==Home_Network" -Tfields -e wlan_radio.
 tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==0x000c" -Tfields -e wlan.ra
 tshark -r WiFi_traffic.pcap -Y "wlan.ta==5c:51:88:31:a0:3b && http" -Tfields -e http.user_agent
 ```
+**Host & Network Penetration Testing: The Metasploit Framework (MSF)**
 
+47)  Windows Recon: Nmap Host Discovery
+
+```
+cat /root/Desktop/target
+ping -c 5 10.0.30.43
+nmap 10.0.30.43
+nmap -Pn 10.0.30.43
+nmap -Pn -p 443 10.0.30.43
+nmap -Pn -sV -p 80 10.0.30.43
+```
 
 
 
