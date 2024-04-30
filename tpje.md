@@ -742,7 +742,7 @@ ls -l
 cat flag
 
 ```
-39) Exploiting Setuid Programs
+40) Exploiting Setuid Programs
 
 ```
 ls -l
@@ -754,7 +754,7 @@ rm greetings
 cd /root
 cat flag
 ```
-40) Password Cracker: Linux
+41) Password Cracker: Linux
 
 ```
 nmap -sS -sV 192.229.31.3
@@ -773,7 +773,7 @@ run
 
 ```
 
-41) Getting Started: Tshark
+42) Getting Started: Tshark
 
 ```
 tshark -v
@@ -784,7 +784,7 @@ tshark -r HTTP_traffic.pcap | wc -l
 tshark -r HTTP_traffic.pcap -c 100
 tshark -r HTTP_traffic.pcap -z io,phs -q
 ```
-42) Filtering Basics: HTTP
+43) Filtering Basics: HTTP
 
 ```
 tshark -Y ‘http’ -r HTTP_traffic.pcap
@@ -797,7 +797,7 @@ tshark -r HTTP_traffic.pcap -Y "ip contains amazon.in && ip.src==192.168.252.128
 tshark -r HTTP_traffic.pcap -Y "ip.src==192.168.252.128 && http" -Tfields -e http.user_agent
 ```
 
-43) ARP Poisoning
+44) ARP Poisoning
 
 ```
 ip addr
@@ -807,7 +807,7 @@ arpspoof -i eth1 -t 10.100.13.37 -r 10.100.13.36
 open wireshark and filter telnet
 ```
 
-44) WiFi Security: Traffic Analysis I
+45) WiFi Security: Traffic Analysis I
 
 ```
 (wlan.fc.type_subtype == 0x0008) && (!(wlan.wfa.ie.wpa.version == 1)) && !(wlan.tag.number == 48)
@@ -820,6 +820,22 @@ wlan contains LazyArtists
 (((wlan.bssid == e8:de:27:16:87:18)) && (wlan.addr==5c:51:88:31:a0:3b)) && (wlan.fc.type_subtype == 0x0001)
 
 ```
+46) Filtering Advanced: WiFi
+    
+```
+tshark -r WiFi_traffic.pcap -Y "wlan"
+tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==0x000c"
+tshark -r WiFi_traffic.pcap -Y "eapol"
+tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==8" -Tfields -e wlan.ssid -e  wlan.bssid
+tshark -r WiFi_traffic.pcap -Y "wlan.ssid==LazyArtists" -Tfields -e wlan.bssid
+tshark -r WiFi_traffic.pcap -Y "wlan.ssid==Home_Network" -Tfields -e wlan_radio.channel
+tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==0x000c" -Tfields -e wlan.ra
+tshark -r WiFi_traffic.pcap -Y "wlan.ta==5c:51:88:31:a0:3b && http" -Tfields -e http.user_agent
+```
+
+
+
+
 
 
 
