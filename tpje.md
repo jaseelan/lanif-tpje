@@ -908,9 +908,21 @@ ftp 192.51.147.3
 
 ```
 
-51)
+51) Samba Recon: Basics
 
 ```
+nmap 192.126.66.3
+nmap -sU --top-ports 25 192.126.66.3
+nmap -sV -p 445 192.126.66.3
+nmap --script smb-os-discovery.nse -p 445 192.126.66.3
+msfconsole
+use auxiliary/scanner/smb/smb_version
+set RHOSTS 192.126.66.3
+exploit
+nmap --script smb-os-discovery.nse -p 445 192.126.66.3
+nmblookup -A 192.126.66.3  # command-line utility used to query NetBIOS name servers
+smbclient -L 192.126.66.3 -N
+rpcclient -U "" -N 192.126.66.3
 
 ```
 
