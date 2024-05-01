@@ -888,6 +888,35 @@ chmod +x ./nmap ./bash-port-scanner.sh
 ./nmap -p- 192.125.162.3
 ```
 
+50) FTP Enumeration
+
+```
+ifconfig
+msfconsole
+use auxiliary/scanner/ftp/ftp_version
+set RHOSTS 192.51.147.3
+run
+use auxiliary/scanner/ftp/ftp_login
+set RHOSTS 192.51.147.3
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+run
+use auxiliary/scanner/ftp/anonymous
+set RHOSTS 192.51.147.3
+run
+ftp 192.51.147.3
+
+```
+
+51)
+
+```
+
+```
+
+
+
+
 
 
 
