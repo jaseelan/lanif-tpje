@@ -1050,5 +1050,34 @@ find / -name "flag"
 cat /flag
 
 ```
+55)  Postfix Recon: Basics
+
+```
+nmap -sV -script banner 192.80.153.3
+nc 192.80.153.3 25
+VRFY admin@openmailbox.xyz
+VRFY commander@openmailbox.xyz
+telnet 192.26.29.3 25
+HELO attacker.xyz
+EHLO attacker.xyz
+smtp-user-enum -U /usr/share/commix/src/txt/usernames.txt -t 192.80.153.3
+msfconsole
+use auxiliary/scanner/smtp/smtp_enum
+set RHOSTS 192.80.153.3
+Exploit
+sendemail -f admin@attacker.xyz -t root@openmailbox.xyz -s 192.26.29.3 -u Fakemail -m "Hi root, a fake from admin" -o tls=no
+
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
