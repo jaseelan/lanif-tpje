@@ -75,7 +75,7 @@ nmap -T4 -sU -p 161 -A 192.57.232.3
 
 07)  Windows Recon: SMB Discover and Mount
 
-```
+```Web App Vulnerability Scanning With WMAP
 ipconfig
 nmap 10.0.24.0/20 --open
 The target subnet is “255.255.240.0” hence we have mentioned CIDR to 20.
@@ -1068,7 +1068,20 @@ Exploit
 sendemail -f admin@attacker.xyz -t root@openmailbox.xyz -s 192.26.29.3 -u Fakemail -m "Hi root, a fake from admin" -o tls=no
 
 ```
+56) Web App Vulnerability Scanning With WMAP
+    
+```
+ifconfig
+msfconsole
+load wmap
+wmap_sites -a 192.157.89.3
+wmap_targets -t http://192.157.89.3
+wmap_sites -l
+wmap_targets -l
+wmap_run -t
+wmap_run -e
 
+```
 
 
 
