@@ -925,9 +925,61 @@ smbclient -L 192.126.66.3 -N
 rpcclient -U "" -N 192.126.66.3
 
 ```
+52)  Apache Enumeration
 
+```
+use auxiliary/scanner/http/http_version
+set RHOSTS 192.111.169.3
+run
+use auxiliary/scanner/http/robots_txt
+set RHOSTS 192.111.169.3
+run
+use auxiliary/scanner/http/http_header
+set RHOSTS 192.111.169.3
+run
+use auxiliary/scanner/http/http_header
+set RHOSTS 192.111.169.3
+set TARGETURI /secure
+run
+use auxiliary/scanner/http/brute_dirs
+set RHOSTS 192.111.169.3
+run
+use auxiliary/scanner/http/dir_scanner
+set RHOSTS 192.111.169.3
+set DICTIONARY /usr/share/metasploit-framework/data/wordlists/directory.txt
+run
+use auxiliary/scanner/http/dir_listing
+set RHOSTS 192.111.169.3
+set PATH /data
+run
+use auxiliary/scanner/http/files_dir
+set RHOSTS 192.111.169.3
+set VERBOSE false
+run
+use auxiliary/scanner/http/http_put
+set RHOSTS 192.111.169.3
+set PATH /data
+set FILENAME test.txt
+set FILEDATA "Welcome To AttackDefense"
+run
+use auxiliary/scanner/http/http_put
+set RHOSTS 192.111.169.3
+set PATH /data
+set FILENAME test.txt
+set ACTION DELETE
+run
+use auxiliary/scanner/http/http_login
+set RHOSTS 192.111.169.3
+set AUTH_URI /secure/
+set VERBOSE false
+run
+use auxiliary/scanner/http/apache_userdir_enum
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+set RHOSTS 192.111.169.3
+set VERBOSE false
+run
 
-
+```
 
 
 
