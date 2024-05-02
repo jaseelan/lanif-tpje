@@ -1436,6 +1436,14 @@ exploit
 clearev
 ```
 
+75)  Pivoting
+
+```
+
+
+
+```
+
 
 
 
