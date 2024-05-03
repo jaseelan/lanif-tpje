@@ -1467,6 +1467,7 @@ shell
 cd /
 dir
 type flag.txt
+search ssh  platform:linux
 ```
 
 
