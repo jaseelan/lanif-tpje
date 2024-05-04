@@ -1651,5 +1651,30 @@ cd /
 dir
 cat flag.txt
 ```
+84)  Port Scanning & Enumeration - Windows
+
+```
+cat /etc/hosts
+ping demo.ine.local
+nmap -sV 10.0.22.85
+nmap -T4 -PA -sC -sV -p 1-10000 10.0.22.85
+https://10.0.22.85:4848
+nmap -sV -sC -p 445 10.0.22.85
+msfconsole
+use /auxiliary/scanner/smb/smb_version
+set RHOSTS 10.0.22.85
+run
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
