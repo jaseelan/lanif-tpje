@@ -2223,7 +2223,43 @@ cd /
 dir
 type flag.txt
 ```
-
+```
+What is the IP address of the host running WordPress?
+How many hosts on the DMZ network are running Windows?
+What version of MySQL is running on the system hosting a Drupal site?
+How many hosts on the DMZ network are running a web server on port 80?
+What version of Windows is running on the host running WordPress?
+What services does Syntex provide to companies?
+What is the email of the admin user on the Drupal site?
+What is the name of the active theme on the WordPress site?
+How many systems on the target network have FTP servers with anonymous access enabled?
+How many user accounts can be enumerated from the SAMBA server running on the system hosting Drupal?
+What type of vulnerability can be exploited to gain access to WINSERVER-03?
+What type of vulnerability can be exploited to elevate your privileges on the Linux host running Drupal?
+Which one of the following MSF modules can be used to obtain an elevated reverse shell on WINSERVER-02?
+How many hosts exist within the internal network that cannot be accessed through the DMZ network?
+What is the subnet of the internal network?
+What host can be used to pivot into the internal network?
+What is the password of the user account "dbadmin" on the Linux server hosting Drupal?
+What is the password for the user "mike" on WINSERVER-01?
+A target system has a user account called "lawrence". What is the password for this account?
+What is the name of the vulnerable web app running on the Linux server in the internal network?
+What is the CVSS V3.x rating for the Drupalgeddon2 vulnerability?
+What file can be used to identify the version of Drupal running on a webserver?
+How many Drupal accounts exist on the Drupal site?
+What version of WordPress is running on WINSERVER-01?
+What WordPress file stores the database configuration?
+What host on the DMZ network is running a database server on port 3307?
+What is the version of the Linux kernel running on the system hosting the Drupal site?
+Excluding the guest account, how many user accounts are present on WINSERVER-01?
+What host in the DMZ network is running a web server with WebDAV enabled?
+What host on the network contains a user account called "lawrence"?
+Which one of the following user accounts is present on WINSERVER-02?
+How many HotFixes are installed on WINSERVER-01?
+The server hosting Drupal contains the file /home/auditor/flag.txt. What is the value of the flag?
+What is the value of the flag /root/flag.txt on the host running Drupal?
+What Windows utility can be used to download files from a remote web server?
+```
 
 
 
