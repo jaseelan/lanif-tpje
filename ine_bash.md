@@ -12,6 +12,7 @@ unzip regex.zip
 rm -rfv regex
 wc bin/* pybin/* Moby-Dick.txt
 wc -c Preface-snapshot.pdf regex.zip
+export PS1="\[\e[1;32m(\@)\] \[\e[0;35m\w\] : "
 
 
 ```
